@@ -30,6 +30,7 @@ import threading
 import queue
 
 from tgbot.bot import TelegramBot
+from openai import AzureOpenAI
 
 console = Console()
 
@@ -59,6 +60,8 @@ DEFAULT_SYMBOL = os.getenv("SYMBOL", "R_100")
 APP_VERSION = "1.0.3"  # Updated version with fixes and improvements
 STATUS_UPDATE_INTERVAL = 3600  # Send status every hour (in seconds)
 TELEGRAM_ADMIN_CHAT_ID = int(os.getenv("TELEGRAM_ADMIN_CHAT_ID", 0))  # Ensure set in .env
+
+
 
 
 @dataclass
