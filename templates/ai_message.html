@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<style>
+  body {
+    background: #0d0f12;
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", Arial, sans-serif;
+    color: #e6e6e6;
+  }
+  .container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #14161a;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #1f2226;
+    box-shadow: 0 0 30px rgba(0,255,200,0.08);
+  }
+  .title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    color: #00ffd5;
+    text-shadow: 0 0 8px rgba(0,255,213,0.5);
+  }
+  .message {
+    line-height: 1.7;
+    font-size: 16px;
+    color: #cfcfcf;
+  }
+  .highlight {
+    color: #00ffd5;
+    font-weight: 500;
+  }
+  .footer {
+    margin-top: 35px;
+    font-size: 13px;
+    text-align: center;
+    color: #6c757d;
+    border-top: 1px solid #24272c;
+    padding-top: 15px;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">Message from CHIKO</div>
+
+    <div class="message">
+      <p>Hello, <span class="highlight">{{USERNAME}}</span>.</p>
+
+      <p>{{MESSAGE_CONTENT}}</p>
+
+      <p>If you need anything else, just reply to this email. I am here and attentive.</p>
+
+      <p class="highlight">– Yours CHIKO</p>
+    </div>
+
+    <div class="footer">
+      This message was generated automatically with care and attention.
+    </div>
+  </div>
+</body>
+</html>
