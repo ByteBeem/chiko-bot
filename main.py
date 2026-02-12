@@ -376,8 +376,6 @@ class CandleMonitor:
                         title="Candle Closed",
                         border_style="green"
                     ))
-                    if self.alert_queue:
-                        self.alert_queue.put(close_msg)
                     self.closed_candles.append(self.forming_candle)
                     if len(self.closed_candles) > 3:
                         self.closed_candles.pop(0)
