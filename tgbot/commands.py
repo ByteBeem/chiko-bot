@@ -1,5 +1,6 @@
 from telegram import Update
 from telegram.ext import ContextTypes
+from system.status import uptime
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Handle /start command"""
@@ -20,7 +21,8 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def status(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Send current trading bot status"""
     # You can await functions here to fetch real-time status from your monitor
-    await update.message.reply_text("🚀 Trading bot is running smoothly!")
+    time = uptime
+    await update.message.reply_text(f"bot uptime {time}")
 
 async def alert(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Trigger an alert manually"""

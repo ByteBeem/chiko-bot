@@ -57,9 +57,9 @@ TIMEOUT = 30
 DEFAULT_CHECK_INTERVAL = 60
 DEFAULT_GRANULARITY = 300
 DEFAULT_SYMBOL = os.getenv("SYMBOL", "R_100")
-APP_VERSION = "1.0.3"  # Updated version with fixes and improvements
-STATUS_UPDATE_INTERVAL = 3600  # Send status every hour (in seconds)
-TELEGRAM_ADMIN_CHAT_ID = int(os.getenv("TELEGRAM_ADMIN_CHAT_ID", 0))  # Ensure set in .env
+APP_VERSION = "1.0.3"  
+STATUS_UPDATE_INTERVAL = 3600  
+TELEGRAM_ADMIN_CHAT_ID = int(os.getenv("TELEGRAM_ADMIN_CHAT_ID", 0))  
 
 
 
@@ -592,7 +592,7 @@ class ChikoEmail:
                             callback(email_data)
                         new_emails_found = True
                 
-                # Periodic status if no new emails
+                
                 current_time = time.time()
                 if not new_emails_found and (current_time - self.last_status_time) > STATUS_UPDATE_INTERVAL:
                     if self.alert_queue:
@@ -604,7 +604,7 @@ class ChikoEmail:
                 if self.alert_queue:
                     self.alert_queue.put(f"IMAP listener error: {str(e)}. Reconnecting...")
                 time.sleep(5)
-                self.connect()  # reconnect if disconnected
+                self.connect()  
 
     def stop_listening(self):
         """Stops the live email listener."""
@@ -629,7 +629,7 @@ class AlertManager:
         self.username = os.getenv("USERNAME", "Sir")
         self.last_alert_pattern: Optional[str] = None
         self.last_alert_epoch: Optional[int] = None
-        self._lock = asyncio.Lock()  # For thread-safety in alert sending
+        self._lock = asyncio.Lock()
         self._validate_template_dir()
     
     @staticmethod
@@ -819,7 +819,7 @@ class TradingMonitorApp:
                         signal = self.candle_monitor.analyze_pattern(candles)
                         if signal:
                             console.print(f"[magenta]Pattern detected: {signal.upper()}[/magenta]")
-                            success = await self.alert_manager.send_alert(  # Made async
+                            success = await self.alert_manager.send_alert(  
                                 signal=signal,
                                 symbol=self.symbol,
                                 candles=candles
@@ -866,8 +866,7 @@ def parse_arguments() -> argparse.Namespace:
 def handle_email(email_data):
     logger.info(f"New email from {email_data['from']}: {email_data['subject']}")
     logger.info(f"Body: {email_data['body']}")
-    # Here you can parse commands, e.g., BUY BTC, STOP, etc.
-    # For now, just log; extend for command processing if needed
+  
 
 
 def start_chiko_email(telegram_bot=None, alert_queue=None):
