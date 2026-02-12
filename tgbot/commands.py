@@ -20,9 +20,8 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def status(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Send current trading bot status"""
-    # You can await functions here to fetch real-time status from your monitor
-    time = uptime
-    await update.message.reply_text(f"bot uptime {time}")
+    current_uptime = uptime()
+    await update.message.reply_text(f"Bot uptime: {current_uptime}")
 
 async def alert(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Trigger an alert manually"""
