@@ -3515,3 +3515,101 @@ TypeError: object NoneType can't be used in 'await' expression
 2025-11-06 14:23:37,655 - __main__ - INFO - ============================================================
 2025-11-06 14:23:37,657 - __main__ - INFO - Trading Monitor Stopped
 2025-11-06 14:23:37,657 - __main__ - INFO - ============================================================
+2026-03-28 15:49:52,276 | __main__                     | INFO     | ================================================================
+2026-03-28 15:49:52,276 | __main__                     | INFO     |   Chiko Trading Monitor v2.0.0
+2026-03-28 15:49:52,277 | __main__                     | INFO     |   Symbol:      BTCUSDT
+2026-03-28 15:49:52,277 | __main__                     | INFO     |   Timeframe:   5m (300s)
+2026-03-28 15:49:52,277 | __main__                     | INFO     |   Candles:     400
+2026-03-28 15:49:52,277 | __main__                     | INFO     |   Min votes:   2 / 4 detectors
+2026-03-28 15:49:52,278 | __main__                     | INFO     |   Min conf:    60%
+2026-03-28 15:49:52,278 | __main__                     | INFO     |   Cooldown:    600s
+2026-03-28 15:49:52,278 | __main__                     | INFO     | ================================================================
+2026-03-28 15:49:52,859 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/getMe "HTTP/1.1 200 OK"
+2026-03-28 15:49:52,860 | apscheduler.scheduler        | INFO     | Scheduler started
+2026-03-28 15:49:52,860 | telegram.ext.Application     | INFO     | Application started
+2026-03-28 15:49:53,041 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/deleteWebhook "HTTP/1.1 200 OK"
+2026-03-28 15:49:53,041 | tgbot.bot                    | INFO     | Telegram bot started (polling mode)
+2026-03-28 15:49:53,637 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/sendMessage "HTTP/1.1 200 OK"
+2026-03-28 15:50:03,581 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/getUpdates "HTTP/1.1 200 OK"
+2026-03-28 15:50:13,765 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/getUpdates "HTTP/1.1 200 OK"
+2026-03-28 15:50:23,945 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/getUpdates "HTTP/1.1 200 OK"
+2026-03-28 15:50:27,502 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/getUpdates "HTTP/1.1 200 OK"
+2026-03-28 15:50:34,376 | __main__                     | ERROR    | Email listener crashed: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+Traceback (most recent call last):
+  File "C:\Users\202133247\chiko-bot\main.py", line 522, in _start_email_listener
+    chiko.connect()
+    ~~~~~~~~~~~~~^^
+  File "C:\Users\202133247\chiko-bot\chiko_email.py", line 51, in connect
+    self.client = IMAPClient(self.imap_host, ssl=True)
+                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\202133247\chiko-bot\env\Lib\site-packages\imapclient\imapclient.py", line 288, in __init__
+    self._imap = self._create_IMAP4()
+                 ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\202133247\chiko-bot\env\Lib\site-packages\imapclient\imapclient.py", line 325, in _create_IMAP4
+    return tls.IMAP4_TLS(
+           ~~~~~~~~~~~~~^
+        self.host,
+        ^^^^^^^^^^
+    ...<2 lines>...
+        connect_timeout,
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\202133247\chiko-bot\env\Lib\site-packages\imapclient\tls.py", line 44, in __init__
+    imaplib.IMAP4.__init__(self, host, port)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3312.0_x64__qbz5n2kfra8p0\Lib\imaplib.py", line 205, in __init__
+    self.open(host, port, timeout)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\202133247\chiko-bot\env\Lib\site-packages\imapclient\tls.py", line 52, in open
+    sock = socket.create_connection(
+        (host, port), timeout if timeout is not None else self._timeout
+    )
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3312.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 864, in create_connection
+    raise exceptions[0]
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3312.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 849, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-03-28 15:50:37,684 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/getUpdates "HTTP/1.1 200 OK"
+2026-03-28 15:50:47,871 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/getUpdates "HTTP/1.1 200 OK"
+2026-03-28 15:50:49,179 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/getUpdates "HTTP/1.1 200 OK"
+2026-03-28 15:50:49,771 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/sendMessage "HTTP/1.1 200 OK"
+2026-03-28 15:50:53,823 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/getUpdates "HTTP/1.1 200 OK"
+2026-03-28 15:50:54,035 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/sendMessage "HTTP/1.1 200 OK"
+2026-03-28 15:51:04,004 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/getUpdates "HTTP/1.1 200 OK"
+2026-03-28 15:51:04,873 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/getUpdates "HTTP/1.1 200 OK"
+2026-03-28 15:51:05,546 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/sendMessage "HTTP/1.1 200 OK"
+2026-03-28 15:51:15,056 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/getUpdates "HTTP/1.1 200 OK"
+2026-03-28 15:51:18,077 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/getUpdates "HTTP/1.1 200 OK"
+2026-03-28 15:51:18,678 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/sendMessage "HTTP/1.1 200 OK"
+2026-03-28 15:51:28,276 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/getUpdates "HTTP/1.1 200 OK"
+2026-03-28 15:51:38,469 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/getUpdates "HTTP/1.1 200 OK"
+2026-03-28 15:51:48,651 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/getUpdates "HTTP/1.1 200 OK"
+2026-03-28 15:51:58,833 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/getUpdates "HTTP/1.1 200 OK"
+2026-03-28 15:51:59,747 | __main__                     | INFO     | Shutdown signal received
+2026-03-28 15:51:59,955 | __main__                     | INFO     | Shutdown signal received
+2026-03-28 15:52:00,243 | __main__                     | INFO     | Shutdown signal received
+2026-03-28 15:52:00,753 | __main__                     | INFO     | Shutdown signal received
+2026-03-28 15:52:00,781 | __main__                     | INFO     | Shutdown signal received
+2026-03-28 15:52:00,822 | __main__                     | INFO     | Shutdown signal received
+2026-03-28 15:52:00,855 | __main__                     | INFO     | Shutdown signal received
+2026-03-28 15:52:00,881 | __main__                     | INFO     | Shutdown signal received
+2026-03-28 15:52:00,921 | __main__                     | INFO     | Shutdown signal received
+2026-03-28 15:52:00,955 | __main__                     | INFO     | Shutdown signal received
+2026-03-28 15:52:00,986 | __main__                     | INFO     | Shutdown signal received
+2026-03-28 15:52:01,015 | __main__                     | INFO     | Shutdown signal received
+2026-03-28 15:52:01,055 | __main__                     | INFO     | Shutdown signal received
+2026-03-28 15:52:09,015 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/getUpdates "HTTP/1.1 200 OK"
+2026-03-28 15:52:19,199 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/getUpdates "HTTP/1.1 200 OK"
+2026-03-28 15:52:29,381 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/getUpdates "HTTP/1.1 200 OK"
+2026-03-28 15:52:39,573 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/getUpdates "HTTP/1.1 200 OK"
+2026-03-28 15:52:49,772 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/getUpdates "HTTP/1.1 200 OK"
+2026-03-28 15:52:54,429 | __main__                     | INFO     | ================================================================
+2026-03-28 15:52:54,429 | __main__                     | INFO     |   Chiko Trading Monitor stopped
+2026-03-28 15:52:54,429 | __main__                     | INFO     | ================================================================
+2026-03-28 15:52:54,971 | httpx                        | INFO     | HTTP Request: POST https://api.telegram.org/bot8056837995:AAEbDsm3sYHeETe-pHxaiJMQhZXnrjYQAZg/getUpdates "HTTP/1.1 200 OK"
+2026-03-28 15:52:54,971 | telegram.ext.Application     | INFO     | Application is stopping. This might take a moment.
+2026-03-28 15:52:54,972 | apscheduler.scheduler        | INFO     | Scheduler has been shut down
+2026-03-28 15:52:54,992 | telegram.ext.Application     | INFO     | Application.stop() complete
+2026-03-28 15:52:54,994 | tgbot.bot                    | INFO     | Telegram bot stopped gracefully.

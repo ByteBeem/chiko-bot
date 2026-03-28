@@ -1,17 +1,32 @@
-from telegram import Update
-from telegram.ext import CallbackContext, CallbackQueryHandler
+from __future__ import annotations
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import ContextTypes
 
-def handle_callback(update: Update, context: CallbackContext):
-    """Handle inline button presses"""
+
+async def handle_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Handle inline keyboard button presses."""
     query = update.callback_query
-    query.answer()
-    
-    data = query.data
+    await query.answer()
+
+    data = query.data or ""
+
     if data.startswith("buy"):
-        query.edit_message_text("Executing BUY order...")
-        # call trading bot function here
+        await query.edit_message_text("📈 BUY order noted. Please execute via your exchange.")
     elif data.startswith("sell"):
-        query.edit_message_text("Executing SELL order...")
-        # call trading bot function here
+        await query.edit_message_text("📉 SELL order noted. Please execute via your exchange.")
+    elif data == "dismiss":
+        await query.edit_message_text("✅ Alert dismissed.")
     else:
-        query.edit_message_text(f"Unknown action: {data}")
+        await query.edit_message_text(f"Unknown action: {data}")
+
+
+def build_signal_keyboard(symbol: str, direction: str) -> InlineKeyboardMarkup:
+    """Build inline keyboard attached to trading signal alerts."""
+    action = "buy" if direction == "bullish" else "sell"
+    keyboard = [
+        [
+            InlineKeyboardButton(f"{'📈 BUY' if action == 'buy' else '📉 SELL'} {symbol}", callback_data=f"{action}_{symbol}"),
+            InlineKeyboardButton("❌ Dismiss", callback_data="dismiss"),
+        ]
+    ]
+    return InlineKeyboardMarkup(keyboard)

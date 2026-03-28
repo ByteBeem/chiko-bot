@@ -1,0 +1,9 @@
+How to run it
+Quick backtest (30 days):
+bashpython backtest_run.py --days 30
+90-day backtest, custom risk:
+bashpython backtest_run.py --days 90 --risk 0.015 --min-confidence 0.65 --out results/run1.csv
+Grid-search optimizer (finds best parameters):
+bashpython backtest_run.py --days 60 --optimize
+JSON output (for piping into other tools):
+bashpython backtest_run.py --days 30 --json
